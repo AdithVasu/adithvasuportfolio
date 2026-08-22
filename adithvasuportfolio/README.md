@@ -1,75 +1,92 @@
-# React + TypeScript + Vite
+# Adith Vasu Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React portfolio site built with TypeScript and Vite. The current
+interface is a polished starter experience that introduces the project with a
+layered React/Vite hero graphic, an interactive counter, documentation links,
+and community links.
 
-Currently, two official plugins are available:
+## Highlights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Responsive layout that adapts the split documentation and social sections
+  for smaller screens.
+- Light and dark color schemes driven by the user's system preference.
+- Interactive counter component demonstrating React state management.
+- Layered hero artwork created with CSS perspective and 3D transforms.
+- Reusable SVG sprite icons loaded from `public/icons.svg`.
+- Fast local development with Vite Hot Module Replacement (HMR).
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript 6
+- Vite 8
+- ESLint 10 with flat configuration
+- Lightning CSS through the Vite pipeline
+- SVG assets and CSS custom properties for the visual system
 
-## Expanding the ESLint configuration
+## Getting started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 20.19 or newer (or 22.12 or newer)
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Install dependencies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Start the development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+Vite will print the local URL in the terminal. Open it in a browser to view
+the site, and edit files in `src/` to see changes immediately through HMR.
+
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Starts the Vite development server. |
+| `npm run build` | Runs the TypeScript project build and creates a production bundle in `dist/`. |
+| `npm run lint` | Checks the project with ESLint. |
+| `npm run preview` | Serves the production bundle locally for verification. |
+
+## Project structure
+
+```text
+.
+├── public/
+│   ├── favicon.svg       # Browser favicon
+│   └── icons.svg         # Shared SVG icon sprite
+├── src/
+│   ├── assets/           # Hero and framework artwork
+│   ├── App.tsx           # Main page layout and interactive state
+│   ├── App.css           # Component layout and responsive styles
+│   ├── index.css         # Global theme, typography, and reset styles
+│   └── main.tsx          # React application entry point
+├── index.html            # Vite HTML shell
+└── package.json          # Dependencies and development scripts
+```
+
+## Customization
+
+The main page content and links live in `src/App.tsx`. Global colors,
+typography, dark-mode behavior, and layout defaults are defined in
+`src/index.css`, while the hero composition and responsive sections are
+defined in `src/App.css`. Replace the files in `src/assets/` and update the
+corresponding imports when adding your own visual identity.
+
+## Production build
+
+Create an optimized production bundle with:
+
+```bash
+npm run build
+```
+
+The generated files are written to `dist/` and can be deployed to any static
+hosting provider that supports a client-side Vite application.

@@ -1,5 +1,7 @@
 # Adith Vasu Portfolio
 
+Hello
+
 A responsive React portfolio site built with TypeScript and Vite. The current
 interface is a polished starter experience that introduces the project with a
 layered React/Vite hero graphic, an interactive counter, documentation links,
